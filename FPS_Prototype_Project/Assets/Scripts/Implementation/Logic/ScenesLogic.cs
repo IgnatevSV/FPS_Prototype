@@ -20,23 +20,23 @@ namespace FPSProject.Impl.Logic
         
         public void StartGame()
         {
-            LoadScene(_scenesConfig.MainGameScene);
+            LoadScene(_scenesConfig.MainGameSceneName);
         }
 
         public void OpenMainMenu()
         {
-            LoadScene(_scenesConfig.MainMenuScene);
+            LoadScene(_scenesConfig.MainMenuSceneName);
         }
 
         public void OpenOptionsMenu()
         {
-            LoadScene(_scenesConfig.OptionsScene);
+            LoadScene(_scenesConfig.OptionsSceneName);
         }
 
-        private void LoadScene(SceneAsset sceneAsset)
+        private void LoadScene(string sceneAssetName)
         {
             _savesLogic.Save();
-            SceneManager.LoadScene(sceneAsset.name);
+            SceneManager.LoadScene(sceneAssetName);
         }
 
         public void ExitGame()

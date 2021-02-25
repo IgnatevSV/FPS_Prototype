@@ -21,7 +21,7 @@ namespace FPSProject.Impl.Views
         [SerializeField] private TextMeshProUGUI _movementSpeedInfo;
         [SerializeField] private TextMeshProUGUI _rotationSpeedInfo;
         
-        [SerializeField] private Button _saveButton;
+        [SerializeField] private Button _revertButton;
         [SerializeField] private Button _exitToMainMenuButton;
         [SerializeField] private Button _exitGameButton;
         [SerializeField] private Button _closeButton;
@@ -38,7 +38,7 @@ namespace FPSProject.Impl.Views
         
         private void InitButtons()
         {
-            _saveButton.onClick.AddListener(OnSaveButtonClickHandler);
+            _revertButton.onClick.AddListener(OnRevertButtonClickHandler);
             _exitToMainMenuButton.onClick.AddListener(OnExitToMainMenuButtonClickHandler);
             _exitGameButton.onClick.AddListener(OnExitGameButtonClickHandler);
             _closeButton.onClick.AddListener(OnCloseButtonClickHandler);
@@ -56,7 +56,7 @@ namespace FPSProject.Impl.Views
         
         private void OnDestroy()
         {
-            _saveButton.onClick.AddListener(OnSaveButtonClickHandler);
+            _revertButton.onClick.AddListener(OnRevertButtonClickHandler);
             _exitToMainMenuButton.onClick.AddListener(OnExitToMainMenuButtonClickHandler);
             _exitGameButton.onClick.AddListener(OnExitGameButtonClickHandler);
             _closeButton.onClick.AddListener(OnCloseButtonClickHandler);
@@ -102,7 +102,28 @@ namespace FPSProject.Impl.Views
             CloseWindow();
         }
         
-        private void OnSaveButtonClickHandler()
+        private void OnRevertButtonClickHandler()
+        {
+            _movementSpeedSlider.value = _playerMovementConfig.DefaultMovementSpeedNormal;
+            _rotationSpeedSlider.value = _playerMovementConfig.DefaultRotationSpeedNormal;
+        }
+
+        private void CloseWindow()
+        {
+            SaveValues();
+            
+            IDisposable onViewHided = null;
+
+            onViewHided = _attachedView.State.Where(s => s == ViewState.Invisible).Subscribe(_ =>
+            {
+                Destroy(this.gameObject);
+                onViewHided?.Dispose();
+            });
+            
+            _attachedView.Hide();
+        }
+        
+        private void SaveValues()
         {
             float movementSettedValue = _movementSpeedSlider.value;
             float rotationSettedValue = _rotationSpeedSlider.value;
@@ -116,31 +137,17 @@ namespace FPSProject.Impl.Views
             {
                 _mainGameLogic.SaveRotationSpeed(rotationSettedValue);
             }
-            
-            
-            CloseWindow();
-        }
-        
-        private void CloseWindow()
-        {
-            IDisposable onViewHided = null;
-
-            onViewHided = _attachedView.State.Where(s => s == ViewState.Invisible).Subscribe(_ =>
-            {
-                Destroy(this.gameObject);
-                onViewHided?.Dispose();
-            });
-            
-            _attachedView.Hide();
         }
 
         private void OnExitToMainMenuButtonClickHandler()
         {
+            SaveValues();
             _scenesLogic.OpenMainMenu();
         }
 
         private void OnExitGameButtonClickHandler()
         {
+            SaveValues();
             _scenesLogic.ExitGame();
         }
     }

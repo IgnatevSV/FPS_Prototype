@@ -15,3 +15,6 @@ MonoBehaviour:
   _mainGameScene: {fileID: 102900000, guid: 7ea413e44b8961a44b4cb5d6b37b715a, type: 3}
   _mainMenuScene: {fileID: 102900000, guid: fe8ca19bb94e1ce4e94798a4c805b619, type: 3}
   _optionsScene: {fileID: 102900000, guid: 45297f831c010484f987db6bb7e70fba, type: 3}
+  _mainGameSceneName: Ingame
+  _mainMenuSceneName: MainMenu
+  _optionsSceneName: OptionsMenu

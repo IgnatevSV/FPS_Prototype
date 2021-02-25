@@ -1,17 +1,31 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FPSProject.Impl.Configs
 {
     [CreateAssetMenu(fileName = "ScenesConfig", menuName = "Configs/Main/ScenesConfig")]
     public class ScenesConfig : ScriptableObject
     {
-        [SerializeField] private SceneAsset _mainGameScene;
-        [SerializeField] private SceneAsset _mainMenuScene;
-        [SerializeField] private SceneAsset _optionsScene;
+#if UNITY_EDITOR
+        [SerializeField] private UnityEditor.SceneAsset _mainGameScene;
+        [SerializeField] private UnityEditor.SceneAsset _mainMenuScene;
+        [SerializeField] private UnityEditor.SceneAsset _optionsScene;
+#endif
+        
+        [SerializeField] [HideInInspector] private string _mainGameSceneName;
+        [SerializeField] [HideInInspector] private string _mainMenuSceneName;
+        [SerializeField] [HideInInspector] private string _optionsSceneName;
+        
+        public string MainGameSceneName => _mainGameSceneName;
+        public string MainMenuSceneName => _mainMenuSceneName;
+        public string OptionsSceneName => _optionsSceneName;
 
-        public SceneAsset MainGameScene => _mainGameScene;
-        public SceneAsset MainMenuScene => _mainMenuScene;
-        public SceneAsset OptionsScene => _optionsScene;
+#if UNITY_EDITOR
+        public void SaveScenesData()
+        {
+            _mainGameSceneName = _mainGameScene.name;
+            _mainMenuSceneName = _mainMenuScene.name;
+            _optionsSceneName = _optionsScene.name;
+        }
+#endif
     }
 }
