@@ -25,8 +25,12 @@ namespace FPSProject.Impl.Views
 
         private void UpdateProgressBar(float currentValue)
         {
-            float normalizedValue = currentValue / _destroyableObject.Data.MaxHealth;
-            _progressBar.SetTargetProgress(normalizedValue);
+            _progressBar.SetTargetProgress(GetNormalizedValue(currentValue));
+        }
+
+        private float GetNormalizedValue(float currentValue)
+        {
+            return currentValue / _destroyableObject.Data.MaxHealth;
         }
 
         private void Awake()
@@ -41,6 +45,8 @@ namespace FPSProject.Impl.Views
             destroyableObjectInited = _destroyableObject.IsInited.Subscribe(isInited =>
             {
                 if (!isInited) return;
+                float progress = GetNormalizedValue(_destroyableObject.CurrentHealth.Value);
+                _progressBar.SetProgressImmediatly(progress);
                 Init(_destroyableObject.CurrentHealth, _destroyableObject.Data.MaxHealth);
                 destroyableObjectInited?.Dispose();
             });

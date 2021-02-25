@@ -16,6 +16,11 @@ namespace FPSProject.Impl.Views
         private float _targetProgress;
         private float _updateStep;
 
+        public void SetProgressImmediatly(float targetProgress)
+        {
+            _currentProgress = _targetProgress = targetProgress;
+        }
+        
         public void SetTargetProgress(float targetProgress)
         {
             _targetProgress = targetProgress;
