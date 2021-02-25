@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464d09d5dff44965905ca27772aac809, type: 3}
+  m_Name: DestroyableObjectsConfig
+  m_EditorClassIdentifier: 
+  _crouchModeDamageModifier: 2
+  _destroyableObjects:
+    m_keys: 000000000100000002000000
+    m_values:
+    - {fileID: 11400000, guid: 4b30a9313071ff94e92292659a3e552a, type: 2}
+    - {fileID: 11400000, guid: db08672145adc5545bee911b0a1127ec, type: 2}
+    - {fileID: 11400000, guid: 2100ff896d5c8ec45ad9c0287c0ba323, type: 2}
+  _poolPrefabToPreloadInstances:
+    m_keys:
+    - {fileID: 2515317045222121860, guid: 68d2b1f9894daa24b88ab62ec633b8c8, type: 3}
+    - {fileID: 6719719697292499675, guid: 6595ed9c80bde344cb32d7c9bc5fd881, type: 3}
+    m_values: 0200000001000000

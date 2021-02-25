@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54584a3ba34840518dbce083aa5cc0b2, type: 3}
+  m_Name: RifleWeaponConfigData
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 7618301283944522196, guid: 229e8f351cf0b804b97ec86f321e2d16, type: 3}
+  _bulletConfigDataId: 0
+  _maxBullets: 6
+  _weaponAccuracy: 1
+  _crosshairPrefab: {fileID: 8721706062674091769, guid: f18dc0e3fe351a4408737d7bc11fb265,
+    type: 3}
+  _reloadTime: 3
+  _autoReload: 1
+  _canBreakReload: 1
