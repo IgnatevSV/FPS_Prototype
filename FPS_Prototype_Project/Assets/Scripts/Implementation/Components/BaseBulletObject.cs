@@ -18,9 +18,7 @@ namespace FPSProject.Impl.Components
         [SerializeField] private GameObject _bulletEffectPrefab;
         
         private List<Collider> _ignoredColliders;
-        
         private IDisposable _bulletFlyProcessSubscription;
-        
         private BulletRuntimeMeta _bulletRuntimeMeta;
 
         private Vector3 _lastFramePosition;

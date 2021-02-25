@@ -7,11 +7,16 @@ namespace FPSProject.Impl.Logic
 {
     public class PlayerInputLogic : IInputLogic 
     {
+        private readonly InputConfig _inputConfig;
+        
         private readonly ReactiveProperty<ControlsType> _currentControlsType = new ReactiveProperty<ControlsType>();
         public IReadOnlyReactiveProperty<ControlsType> CurrentControlsType => _currentControlsType;
-        
-        [Inject] private InputConfig _inputConfig;
 
+        public PlayerInputLogic(InputConfig inputConfig)
+        {
+            _inputConfig = inputConfig;
+        }
+        
         public void SetControlsType(ControlsType type)
         {
             _currentControlsType.Value = type;

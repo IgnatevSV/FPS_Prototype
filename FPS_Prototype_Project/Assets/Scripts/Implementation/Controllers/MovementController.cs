@@ -30,9 +30,6 @@ namespace FPSProject.Impl.Controllers
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private LayerMask _groundCheckLayers = -1;
         
-        
-        
-        
         private Transform _characterTransform;
         private Vector3 _groundNormal;
         private Vector3 _characterVelocity;

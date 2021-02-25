@@ -17,10 +17,10 @@ namespace FPSProject.Impl.Controllers
         
         private void Awake()
         {
-            _mainGameLogic.ActiveWeapon.Subscribe(OnActiveWeaponChanged).AddTo(this);
+            _mainGameLogic.ActiveWeapon.Subscribe(UpdateCrosshair).AddTo(this);
         }
 
-        private void OnActiveWeaponChanged(IWeaponObject weaponObject)
+        private void UpdateCrosshair(IWeaponObject weaponObject)
         {
             if (weaponObject == null) return;
 

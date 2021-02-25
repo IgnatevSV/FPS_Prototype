@@ -7,13 +7,19 @@ namespace FPSProject.Impl.Logic
 {
     public class DestroyableObjectsLogic : IDestroyableObjectsLogic
     {
-        [Inject] private IMainGameLogic _mainGameLogic;
-        [Inject] private DestroyableObjectsConfig _destroyableObjectsConfig;
-        
         public event Action<DestroyMeta> OnDestroyableObjectKilled;
 
         private readonly HashSet<IDestroyableObject> _destroyableObjectsAtScene = new HashSet<IDestroyableObject>();
+        private readonly IMainGameLogic _mainGameLogic;
+        private readonly DestroyableObjectsConfig _destroyableObjectsConfig;
 
+        [Inject]
+        public DestroyableObjectsLogic(IMainGameLogic mainGameLogic, DestroyableObjectsConfig destroyableObjectsConfig)
+        {
+            _mainGameLogic = mainGameLogic;
+            _destroyableObjectsConfig = destroyableObjectsConfig;
+        }
+        
         public void Register(IDestroyableObject destroyableObject)
         {
             _destroyableObjectsAtScene.Add(destroyableObject);

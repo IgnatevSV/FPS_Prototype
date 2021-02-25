@@ -9,8 +9,7 @@ namespace FPSProject.Impl.Logic
     {
         private readonly PlayerMovementConfig _playerMovementConfig;
         private readonly ISaves _savesLogic;
-        
-        
+
         private readonly ReactiveProperty<bool> _isCrouchModeEnabled = new ReactiveProperty<bool>();
         private readonly ReactiveProperty<IWeaponObject> _activeWeapon = new ReactiveProperty<IWeaponObject>();
         private readonly ReactiveProperty<float> _movementSpeed = new ReactiveProperty<float>();

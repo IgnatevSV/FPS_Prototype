@@ -2,6 +2,7 @@
 using System.IO;
 using FPSProject.Impl.Utils;
 using UnityEngine;
+using Zenject;
 
 namespace FPSProject.Impl.Logic
 {

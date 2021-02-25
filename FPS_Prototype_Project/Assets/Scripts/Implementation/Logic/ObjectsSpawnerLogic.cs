@@ -8,10 +8,17 @@ namespace FPSProject.Impl.Logic
 {
     public class ObjectsSpawnerLogic : IObjectsSpawnerLogic, IInitializable
     {
-        [Inject] private DiContainer _diContainer;
-        [Inject] private DestroyableObjectsConfig _destroyableObjectsConfig;
+        private readonly DiContainer _diContainer;
+        private readonly DestroyableObjectsConfig _destroyableObjectsConfig;
         
         private readonly Dictionary<IPoolableObject, List<IPoolableObject>> _prefabToInstancesPool = new Dictionary<IPoolableObject, List<IPoolableObject>>();
+
+        [Inject]
+        public ObjectsSpawnerLogic(DiContainer diContainer, DestroyableObjectsConfig destroyableObjectsConfig)
+        {
+            _diContainer = diContainer;
+            _destroyableObjectsConfig = destroyableObjectsConfig;
+        }
         
         public void Initialize()
         {
