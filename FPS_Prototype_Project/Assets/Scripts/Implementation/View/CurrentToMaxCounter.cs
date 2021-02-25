@@ -26,6 +26,11 @@ namespace FPSProject.Impl.Views
             InitBase(maxValue);
             _counterUpdateSubscription = currentValue.Subscribe(OnValueChanged);
         }
+        
+        protected virtual void OnValueChanged(float currentValue)
+        {
+            OnValueChanged((int) currentValue);
+        }
 
         private void InitBase(float maxValue)
         {
@@ -41,11 +46,6 @@ namespace FPSProject.Impl.Views
         private void OnDestroy()
         {
             UnsubCounterUpdate();
-        }
-        
-        private void OnValueChanged(float currentValue)
-        {
-            OnValueChanged((int) currentValue);
         }
 
         private void OnValueChanged(int currentValue)

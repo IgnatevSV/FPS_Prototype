@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2508715633007543373}
   - component: {fileID: 2508715633007543374}
+  - component: {fileID: 8990223273056094015}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -48,6 +49,21 @@ MonoBehaviour:
   _counterInfo: {fileID: 2508715633916712642}
   _destroyableObject: {fileID: 0}
   _positionOffset: {x: 0, y: 0, z: 0}
+  _progressBar: {fileID: 8990223273056094015}
+--- !u!114 &8990223273056094015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508715633007543372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b290384226049dbab0facf545a3a442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _filler: {fileID: 2508715634561540030}
+  _updateDelay: 0.7
 --- !u!1 &2508715633702340497
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,14 +358,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b04ba5fb49528e946b642a1f60dff479, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2508715634677856152
